@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تم الإرسال بنجاح</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+        body {
+            font-family: "Poppins", sans-serif;
+            background-image: url("background.jpg");
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(58, 211, 3, 0.5);
+        }
+        h1 {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            background-color: rgb(58, 211, 3);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            box-shadow: 0 0 15px rgba(58, 211, 3, 0.8);
+        }
+
+        /* Custom Green Glowing Cursor */
+        * {
+            cursor: none !important;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #00ff00;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>تم الإرسال بنجاح!</h1>
+        <p>شكرًا لك على تواصلك معي، سأقوم بالرد عليك في أقرب وقت ممكن.</p>
+        <a href="index.html">العودة إلى الصفحة الرئيسية</a>
+    </div>
+
+    <script>
+        // Custom Green Glowing Cursor
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.createElement('div');
+            cursor.className = 'custom-cursor';
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', function(e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Add hover effects for interactive elements
+            const interactiveElements = document.querySelectorAll('a, button');
+
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    cursor.style.boxShadow = '0 0 15px #00ff00, 0 0 30px #00ff00, 0 0 45px #00ff00';
+                });
+
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursor.style.boxShadow = '0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00';
+                });
+            });
+
+            // Keep cursor visible at all times
+            cursor.style.opacity = '1';
+        });
+    </script>
+
+</body>
+</html> 
